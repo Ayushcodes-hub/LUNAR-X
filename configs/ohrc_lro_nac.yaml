@@ -1,0 +1,41 @@
+# Sensor-pair configuration for OHRC → LRO NAC registration
+# This is a TEMPLATE. Fill in real file paths when actual data is available.
+# Do NOT invent coordinates, resolutions, or metadata.
+
+pair_id: ohrc_lro_nac_template
+
+reference:
+  sensor: LRO_NAC
+  mission: Lunar Reconnaissance Orbiter
+  instrument: Narrow Angle Camera
+  # Provide actual file path when data is available:
+  file_path: null
+  # status will show as "CONFIGURATION REQUIRED" in the UI
+  status: configuration_required
+  note: "LRO NAC data available from https://pds.lroc.asu.edu/data/ (no credentials required for public data)"
+
+target:
+  sensor: OHRC
+  mission: Chandrayaan-2
+  instrument: Orbiter High Resolution Camera
+  # Provide actual file path when data is available:
+  file_path: null
+  status: configuration_required
+  note: "OHRC data available from ISSDC (https://pradan.issdc.gov.in/) — may require registration"
+
+registration:
+  matcher: sift            # sift | loftr
+  preprocessing: clahe     # clahe | homomorphic | none
+  refinement_method: pyramid  # phase_correlation | ecc | pyramid
+  ransac_threshold: 4.0    # pixels
+  ratio_threshold: 0.75
+  max_features: 8000
+  grid_n: 8
+  grid_m: 8
+
+evaluation:
+  compute_rmse: true
+  compute_ncc: true
+  compute_ssim: true
+  compute_mutual_information: true
+  compute_uniformity: true

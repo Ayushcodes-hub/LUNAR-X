@@ -1,0 +1,103 @@
+/* LUNARIS — Cinematic Space Theme
+ * Deep space: near-black backgrounds, cyan/teal accents, amber warnings
+ * Glass-morphism panels with backdrop-filter
+ * Hardware-accelerated canvas starfield (see StarField.tsx)
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --space-950: #020308;
+  --space-900: #0a0b14;
+  --space-800: #0d1020;
+  --space-700: #111525;
+  --space-600: #161b30;
+  --cyan-400: #22d3ee;
+  --cyan-500: #06b6d4;
+  --cyan-dim: rgba(34, 211, 238, 0.15);
+  --amber: #fbbf24;
+  --text-primary: rgba(226, 232, 240, 0.95);
+  --text-secondary: rgba(148, 163, 184, 0.8);
+  --text-muted: rgba(71, 85, 105, 0.9);
+  --glass-bg: rgba(13, 16, 32, 0.75);
+  --glass-border: rgba(34, 211, 238, 0.12);
+  --glass-blur: 16px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--space-950);
+  color: var(--text-primary);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  overflow: hidden;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: var(--space-800); }
+::-webkit-scrollbar-thumb { background: var(--cyan-dim); border-radius: 2px; }
+::-webkit-scrollbar-thumb:hover { background: var(--cyan-400); }
+
+/* Glass panel */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur));
+  -webkit-backdrop-filter: blur(var(--glass-blur));
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+}
+
+/* Cyan glow ring */
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(34, 211, 238, 0.25), 0 0 40px rgba(34, 211, 238, 0.08);
+}
+
+/* Monospace data values */
+.data-value {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Pipeline stage pulse animation */
+@keyframes pulse-cyan {
+  0%, 100% { box-shadow: 0 0 6px rgba(34, 211, 238, 0.4); }
+  50% { box-shadow: 0 0 18px rgba(34, 211, 238, 0.9), 0 0 30px rgba(34, 211, 238, 0.3); }
+}
+.pulse-active { animation: pulse-cyan 1.8s ease-in-out infinite; }
+
+/* Scanline overlay for retro feel */
+@keyframes scanlines {
+  0% { background-position: 0 0; }
+  100% { background-position: 0 4px; }
+}
+
+/* Futuristic slider */
+input[type='range'] {
+  -webkit-appearance: none;
+  height: 3px;
+  background: linear-gradient(to right, var(--cyan-500), var(--cyan-dim));
+  border-radius: 2px;
+  outline: none;
+}
+input[type='range']::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--cyan-400);
+  box-shadow: 0 0 8px var(--cyan-400);
+  cursor: pointer;
+}

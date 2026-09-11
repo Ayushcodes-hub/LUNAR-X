@@ -1,0 +1,63 @@
+{
+  "data_type": "SYNTHETIC TEST DATA",
+  "warning": "This is procedurally generated data for pipeline testing. NOT real lunar imagery.",
+  "source": "procedural lunar surface (seed=42, size=512x512)",
+  "image_size": {
+    "width": 512,
+    "height": 512
+  },
+  "transform": {
+    "rotation_deg": 4.5,
+    "scale": 1.03,
+    "tx_px": 25.0,
+    "ty_px": -15.0,
+    "center_x": 256.0,
+    "center_y": 256.0
+  },
+  "illumination": {
+    "gamma": 1.35,
+    "brightness_offset": 20
+  },
+  "homography_ref_to_target": [
+    [
+      1.026824853745122,
+      -0.08081286859968029,
+      38.82093180276695
+    ],
+    [
+      0.08081286859968029,
+      1.026824853745122,
+      -42.55525692026936
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "homography_target_to_ref": [
+    [
+      0.9678809065370174,
+      0.07617387934742226,
+      -34.332439659630644
+    ],
+    [
+      -0.07617387934742227,
+      0.9678809065370174,
+      44.145561621204465
+    ],
+    [
+      0.0,
+      0.0,
+      1.0
+    ]
+  ],
+  "invertibility": {
+    "is_invertible": true,
+    "max_identity_error": 1.4142932399065327e-17
+  },
+  "files": {
+    "reference": "C:\\Users\\Admin\\Downloads\\LUNARIS-Ag\\test_data\\lunar_pair_1\\reference.png",
+    "target": "C:\\Users\\Admin\\Downloads\\LUNARIS-Ag\\test_data\\lunar_pair_1\\target.png"
+  }
+}

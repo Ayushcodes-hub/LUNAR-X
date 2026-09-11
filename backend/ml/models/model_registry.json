@@ -1,0 +1,64 @@
+[
+  {
+    "model_id": "dinov2_base",
+    "name": "DINOv2 Foundation ViT",
+    "architecture": "ViT-S/14",
+    "checkpoint_path": "torchhub:facebookresearch/dinov2",
+    "stage": "production",
+    "created_at": "2026-09-06T07:32:31.692560+00:00",
+    "validation_metrics": {
+      "status": "Pretrained Meta Checkpoint",
+      "robustness": "Zero-shot"
+    },
+    "evaluation_gate_passed": true,
+    "promoted_by": "system",
+    "promotion_notes": "Base foundation model for dense token extraction"
+  },
+  {
+    "model_id": "roma_flagship",
+    "name": "RoMa Dense Matcher",
+    "architecture": "Coarse-to-Fine ViT Correlation Volume",
+    "checkpoint_path": "kornia/roma_v1",
+    "stage": "production",
+    "created_at": "2026-09-06T07:32:31.692666+00:00",
+    "validation_metrics": {
+      "inlier_ratio": 1.0,
+      "reproj_error_px": 0.293
+    },
+    "evaluation_gate_passed": true,
+    "promoted_by": "system",
+    "promotion_notes": "Flagship dense matcher for large viewpoint and scale deltas"
+  },
+  {
+    "model_id": "lightglue_fast",
+    "name": "LightGlue GNN Matcher",
+    "architecture": "Adaptive-Depth Graph Transformer",
+    "checkpoint_path": "kornia/lightglue_v1",
+    "stage": "production",
+    "created_at": "2026-09-06T07:32:31.692711+00:00",
+    "validation_metrics": {
+      "inlier_ratio": 0.98,
+      "reproj_error_px": 0.35
+    },
+    "evaluation_gate_passed": true,
+    "promoted_by": "system",
+    "promotion_notes": "Fast lightweight matcher for high-throughput tile processing"
+  },
+  {
+    "model_id": "run_2254cfb1",
+    "name": "FineTuned-Projection-run_2254cfb1",
+    "architecture": "CrossModal-DINOv2-Head",
+    "checkpoint_path": "ml\\models\\run_2254cfb1_head.pt",
+    "stage": "development",
+    "created_at": "2026-09-11T13:50:37.150038+00:00",
+    "validation_metrics": {
+      "initial_loss": 1.3319,
+      "final_loss": 0.0492,
+      "val_loss": 1.6341,
+      "loss_reduction_pct": 96.3
+    },
+    "evaluation_gate_passed": false,
+    "promoted_by": "training_engine",
+    "promotion_notes": "Auto-evaluated: Val loss = 1.6341"
+  }
+]

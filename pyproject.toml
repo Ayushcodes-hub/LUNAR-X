@@ -1,0 +1,61 @@
+[build-system]
+requires = ["setuptools>=70", "wheel"]
+build-backend = "setuptools.backends.legacy:build"
+
+[project]
+name = "lunaris-backend"
+version = "0.1.0"
+description = "Lunar Image Registration Command Center — Backend"
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.136",
+    "uvicorn[standard]>=0.49",
+    "pydantic>=2.12",
+    "pydantic-settings>=2.7",
+    "sqlalchemy>=2.0",
+    "aiosqlite>=0.20",
+    "python-multipart>=0.0.20",
+    "python-dotenv>=1.0",
+    "sse-starlette>=2.1",
+    "httpx>=0.28",
+    "numpy>=2.0",
+    "scipy>=1.17",
+    "opencv-contrib-python>=4.10",
+    "scikit-image>=0.24",
+    "pillow>=10.0",
+    "torch>=2.0",
+    "torchvision>=0.15",
+    "kornia>=0.7",
+    "pyyaml>=6.0",
+    "matplotlib>=3.8",
+    "psutil>=6.0",
+]
+
+[project.optional-dependencies]
+geo = ["rasterio>=1.4"]
+dev = [
+    "pytest>=9.0",
+    "pytest-asyncio>=0.23",
+    "httpx>=0.28",
+    "black>=24.0",
+    "ruff>=0.5",
+    "mypy>=1.10",
+]
+
+[tool.black]
+line-length = 100
+target-version = ["py311"]
+
+[tool.ruff]
+line-length = 100
+select = ["E", "F", "I", "N", "UP", "ANN", "B", "SIM"]
+ignore = ["ANN101", "ANN102", "ANN401"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
